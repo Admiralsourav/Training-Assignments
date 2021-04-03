@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+
+	<bean class="com.cognizant.handson3.model.Department" id="hr">
+		<property name="deptId" value="hr" />
+		<property name="deptName" value="HR" />
+	</bean>
+
+	<bean class="com.cognizant.handson3.model.Department"
+		id="developer">
+		<property name="deptId" value="devop" />
+		<property name="deptName" value="DEVOP" />
+	</bean>
+
+	
+	<bean class="com.cognizant.handson3.model.Employee" id="emp1">
+		<property name="empId" value="emp1" />
+		<property name="empName" value="Sourav" />
+		<property name="salary" value="1000" />
+		<property name="dept">
+			<ref bean="developer" />
+		</property>
+	</bean>
+
+
+
+	<bean class="com.cognizant.handson3.model.Employee" id="emp2">
+		<property name="empId" value="emp2" />
+		<property name="empName" value="Gourav" />
+		<property name="salary" value="1000" />
+		<property name="dept">
+			<ref bean="developer" />
+		</property>
+	</bean>
+
+
+
+	<bean class="com.cognizant.handson3.model.Employee" id="emp3">
+		<property name="empId" value="emp3" />
+		<property name="empName" value="Shambhu" />
+		<property name="salary" value="2000" />
+		<property name="dept">
+			<ref bean="hr" />
+		</property>
+	</bean>
+
+
+	<bean class="com.cognizant.handson3.model.Employee" id="emp4">
+		<property name="empId" value="emp4" />
+		<property name="empName" value="Babita" />
+		<property name="salary" value="2000" />
+		<property name="dept">
+			<ref bean="hr" />
+		</property>
+	</bean>
+
+
+
+
+
+	<bean class="com.cognizant.handson3.dao.EmployeeDao"
+		id="employeeList">
+		<property name="EMPLOYEE_LIST">
+			<list>
+				<ref bean="emp1"></ref>
+				<ref bean="emp2"></ref>
+				<ref bean="emp3"></ref>
+				<ref bean="emp4"></ref>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<bean class="com.cognizant.handson3.dao.DepartmentDao" id="departmentList">
+		<property name="DEPARTMENT_LIST">
+		<list>
+		<ref bean="hr"/>
+		<ref bean="developer"/>
+		</list>		
+		</property>
+	</bean>
+
+
+
+
+
+
+
+
+
+
+
+</beans>
